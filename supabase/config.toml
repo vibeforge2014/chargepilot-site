@@ -1,0 +1,7 @@
+project_id = "paeonjdgfjpmuicxwrgg"
+
+[functions.paddle-webhook]
+verify_jwt = false
+
+[functions.entitlement]
+verify_jwt = true

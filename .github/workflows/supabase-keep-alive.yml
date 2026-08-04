@@ -1,0 +1,38 @@
+name: Supabase Keep Alive
+
+on:
+  schedule:
+    # Avoid the top of the hour, when scheduled Actions are most likely delayed.
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping-database:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Generate lightweight database activity
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$SUPABASE_URL"
+          test -n "$SUPABASE_PUBLISHABLE_KEY"
+
+          for table in paddle_customers paddle_subscriptions product_entitlements; do
+            curl --fail --silent --show-error \
+              --retry 3 \
+              --retry-all-errors \
+              --connect-timeout 15 \
+              --max-time 30 \
+              -H "apikey: $SUPABASE_PUBLISHABLE_KEY" \
+              -H "Authorization: Bearer $SUPABASE_PUBLISHABLE_KEY" \
+              "$SUPABASE_URL/rest/v1/$table?select=customer_id&limit=0" \
+              > /dev/null
+          done
+
+          echo "Supabase database activity generated successfully."
