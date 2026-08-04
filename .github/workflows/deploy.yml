@@ -28,6 +28,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_PADDLE_ENVIRONMENT: ${{ vars.PADDLE_ENVIRONMENT }}
+          VITE_PADDLE_CLIENT_TOKEN: ${{ vars.PADDLE_CLIENT_TOKEN }}
+          VITE_PADDLE_ANNUAL_PRICE_ID: ${{ vars.PADDLE_ANNUAL_PRICE_ID }}
+          VITE_PADDLE_LIFETIME_PRICE_ID: ${{ vars.PADDLE_LIFETIME_PRICE_ID }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

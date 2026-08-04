@@ -8,6 +8,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "@paddle/paddle-js": "^1.4.2"
+  },
   "devDependencies": {
     "vite": "^7.1.0"
   }

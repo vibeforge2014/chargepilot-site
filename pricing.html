@@ -1,1 +1,64 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="ChargePilot 定价与授权方案。"><title>定价 — ChargePilot</title><script type="module" src="/src/partials.js"></script><script type="module" src="/src/main.js"></script></head><body><div data-header></div><main class="shell"><header class="page-hero"><p class="eyebrow">Simple, transparent pricing</p><h1>先体验，再决定。</h1><p class="page-lead">下载即可查看实时电池状态。升级个人版可解锁完整的充电控制、保护和自动化功能。</p></header><section class="pricing-grid" aria-label="定价方案"><article class="price-card"><p class="price-label">免费版</p><p class="price">¥0 <small>/ 永久</small></p><p class="price-note">适合了解电池状态与 ChargePilot 的工作方式。</p><ul class="check-list"><li>实时电量、温度与功率</li><li>菜单栏状态</li><li>电池健康概览</li></ul><a class="button button-secondary" href="downloads/ChargePilot-0.2.0.zip">下载 v0.2.0</a></article><article class="price-card featured"><p class="price-label">个人版 · 一次性购买</p><p class="price">¥98 <small>/ 永久授权</small></p><p class="price-note">一台 Mac 的完整功能授权，不设订阅，不自动续费。</p><ul class="check-list"><li>可执行充电上限</li><li>主动放电与临时充满</li><li>过热保护与校准</li><li>定时任务与快捷指令</li><li>后续版本更新</li></ul><a class="button button-primary" href="#purchase" aria-disabled="true">即将开放购买</a></article></section><aside class="pricing-note" id="purchase"><strong>支付说明：</strong>购买由 Paddle 安全处理。结账页会显示最终价格、适用税费和当地币种。数字产品提供 14 天退款保障，详情请阅读<a href="refund-policy.html">退款政策</a>。</aside></main><div data-footer></div></body></html>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="选择 ChargePilot 年度订阅或终身授权，通过 Paddle 安全结账。">
+    <title>定价 — ChargePilot</title>
+    <script type="module" src="/src/partials.js"></script>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/pricing.js"></script>
+  </head>
+  <body>
+    <div data-header></div>
+    <main class="shell">
+      <header class="page-hero pricing-hero">
+        <p class="eyebrow">Simple, secure pricing</p>
+        <h1>选择适合你的<br>充电方式。</h1>
+        <p class="page-lead">两种方案均解锁 ChargePilot 完整功能。价格由 Paddle 根据所在地区显示，并在安全结账页完成支付。</p>
+        <div class="sandbox-badge"><span></span>Paddle Sandbox · 测试环境，不会产生真实扣款</div>
+      </header>
+
+      <div class="pricing-status" role="status" aria-live="polite" data-pricing-status>正在获取你所在地区的价格…</div>
+
+      <section class="pricing-grid paddle-pricing-grid" aria-label="ChargePilot 购买方案">
+        <article class="price-card featured" data-option="annual">
+          <div class="plan-topline"><p class="price-label">年度方案</p><span class="plan-badge">7 天免费试用</span></div>
+          <h2>Annual Plan</h2>
+          <p class="price-note">按年续订，持续获得高级功能和订阅期内的产品更新。</p>
+          <p class="price paddle-price" data-price="annual"><span class="price-skeleton">···</span></p>
+          <p class="billing-label">每年 · 自动续订</p>
+          <ul class="check-list">
+            <li>全部高级功能</li>
+            <li>订阅期内持续更新</li>
+            <li>前 7 天免费试用</li>
+            <li>可随时取消续订</li>
+          </ul>
+          <button class="button button-primary checkout-button" type="button" data-checkout="annual" disabled>Subscribe</button>
+          <p class="card-fine-print">试用结束后按 Paddle 结账页显示的本地价格按年收费。</p>
+        </article>
+
+        <article class="price-card" data-option="lifetime">
+          <div class="plan-topline"><p class="price-label">终身授权</p><span class="plan-badge neutral">一次付费</span></div>
+          <h2>Lifetime License</h2>
+          <p class="price-note">一次购买，永久使用当前 ChargePilot 产品及其当前主要版本。</p>
+          <p class="price paddle-price" data-price="lifetime"><span class="price-skeleton">···</span></p>
+          <p class="billing-label">一次性付款 · 不自动续费</p>
+          <ul class="check-list">
+            <li>全部高级功能</li>
+            <li>一次性付款</li>
+            <li>无周期性扣款</li>
+            <li>当前主要版本内的更新</li>
+          </ul>
+          <button class="button button-secondary checkout-button" type="button" data-checkout="lifetime" disabled>Buy Lifetime</button>
+          <p class="card-fine-print">不含免费试用；未来重大版本升级不在本授权承诺范围内。</p>
+        </article>
+      </section>
+
+      <aside class="pricing-note paddle-note">
+        <strong>由 Paddle 安全处理：</strong>结账页会显示最终本地价格、适用税费和付款币种。年度方案为自动续订，终身授权为一次性购买。数字产品退款规则请参阅<a href="refund-policy.html">退款政策</a>。
+      </aside>
+    </main>
+    <div data-footer></div>
+  </body>
+</html>
