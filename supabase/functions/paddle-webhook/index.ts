@@ -25,11 +25,32 @@ async function customer(event: any) {
   if (error) throw error;
 }
 
+async function ensureCustomer(customerId: string, occurredAt: string | Date) {
+  const { data: existing } = await db
+    .from('paddle_customers')
+    .select('customer_id')
+    .eq('customer_id', customerId)
+    .maybeSingle();
+  if (existing) return;
+
+  const value = await paddle.customers.get(customerId);
+  const { error } = await db.from('paddle_customers').upsert({
+    customer_id: value.id,
+    email: value.email,
+    paddle_created_at: value.createdAt,
+    paddle_updated_at: value.updatedAt,
+    last_event_at: occurredAt,
+    updated_at: new Date().toISOString()
+  });
+  if (error) throw error;
+}
+
 async function subscription(event: any) {
   const value = event.data;
   const item = value.items?.find((entry: any) => entry.price?.id === annualPriceId || entry.price?.productId === annualProductId);
   if (!item) return;
   const occurredAt = event.occurredAt ?? event.occurred_at;
+  await ensureCustomer(value.customerId, occurredAt);
   const { data: existing } = await db.from('paddle_subscriptions').select('last_event_at').eq('subscription_id', value.id).maybeSingle();
   if (existing && new Date(existing.last_event_at) > new Date(occurredAt)) return;
   const status = value.status;
@@ -61,6 +82,7 @@ async function transaction(event: any) {
   const priceIds = lines.map((line: any) => line.price?.id).filter(Boolean);
   const productIds = lines.map((line: any) => line.price?.productId ?? line.product?.id).filter(Boolean);
   const occurredAt = event.occurredAt ?? event.occurred_at;
+  await ensureCustomer(value.customerId, occurredAt);
   const { data: existing } = await db.from('paddle_transactions').select('last_event_at').eq('transaction_id', value.id).maybeSingle();
   if (existing && new Date(existing.last_event_at) > new Date(occurredAt)) return;
   const { error } = await db.from('paddle_transactions').upsert({
