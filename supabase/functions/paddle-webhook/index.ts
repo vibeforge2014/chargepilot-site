@@ -140,14 +140,17 @@ async function adjustment(event: any) {
   });
   if (error) throw error;
 
+  const fullyRefundedItems = Array.isArray(value.items)
+    && value.items.length > 0
+    && value.items.every((item: any) => item.type === 'full');
   const revokesLifetime = value.status === 'approved'
-    && value.type === 'full'
+    && (value.type === 'full' || fullyRefundedItems)
     && ['refund', 'chargeback'].includes(value.action);
   if (!revokesLifetime) return;
 
   const { error: revokeError } = await db
     .from('product_entitlements')
-    .update({ status: 'revoked', updated_at: new Date().toISOString() })
+    .update({ status: 'revoked', valid_until: new Date().toISOString(), updated_at: new Date().toISOString() })
     .eq('source_type', 'lifetime_transaction')
     .eq('source_id', value.transactionId);
   if (revokeError) throw revokeError;
