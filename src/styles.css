@@ -30,7 +30,7 @@ button { font: inherit; }
 }
 .header-inner { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; text-decoration: none; letter-spacing: -0.04em; font-size: 1.18rem; }
-.brand-mark { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 9px; background: var(--ink); color: var(--green); font: 500 17px/1 "DM Mono", monospace; }
+.brand-mark { width: 30px; height: 30px; display: block; object-fit: contain; }
 .nav { display: flex; align-items: center; gap: 28px; }
 .nav a { text-decoration: none; font-size: 0.9rem; font-weight: 700; color: var(--muted); }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); }
