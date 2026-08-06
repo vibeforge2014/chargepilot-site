@@ -65,9 +65,17 @@ async function subscription(event: any) {
     last_event_at: occurredAt, updated_at: new Date().toISOString()
   });
   if (error) throw error;
-  const entitlementStatus = ['active', 'trialing'].includes(status) ? 'active' : 'inactive';
+  const entitlementId = `subscription:${value.id}:${annualProductId}`;
+  const { data: existingEntitlement } = await db
+    .from('product_entitlements')
+    .select('status')
+    .eq('entitlement_id', entitlementId)
+    .maybeSingle();
+  const entitlementStatus = existingEntitlement?.status === 'revoked'
+    ? 'revoked'
+    : (['active', 'trialing'].includes(status) ? 'active' : 'inactive');
   const { error: entitlementError } = await db.from('product_entitlements').upsert({
-    entitlement_id: `subscription:${value.id}:${annualProductId}`,
+    entitlement_id: entitlementId,
     customer_id: value.customerId, source_type: 'subscription', source_id: value.id,
     product_id: annualProductId, price_id: annualPriceId, status: entitlementStatus,
     valid_from: value.startedAt ?? value.createdAt,
@@ -140,20 +148,44 @@ async function adjustment(event: any) {
   });
   if (error) throw error;
 
-  const fullyRefundedItems = Array.isArray(value.items)
-    && value.items.length > 0
-    && value.items.every((item: any) => item.type === 'full');
-  const revokesLifetime = value.status === 'approved'
-    && (value.type === 'full' || fullyRefundedItems)
+  const isApprovedRevocation = value.status === 'approved'
     && ['refund', 'chargeback'].includes(value.action);
-  if (!revokesLifetime) return;
+  if (!isApprovedRevocation) return;
 
-  const { error: revokeError } = await db
-    .from('product_entitlements')
-    .update({ status: 'revoked', valid_until: new Date().toISOString(), updated_at: new Date().toISOString() })
-    .eq('source_type', 'lifetime_transaction')
-    .eq('source_id', value.transactionId);
-  if (revokeError) throw revokeError;
+  const originalTransaction = await paddle.transactions.get(value.transactionId);
+  const fullyAdjustedItemIds = new Set(
+    (value.items ?? [])
+      .filter((item: any) => item.type === 'full')
+      .map((item: any) => item.itemId)
+  );
+  const fullyAdjustedPriceIds = new Set(
+    (originalTransaction.items ?? [])
+      .filter((item: any) => value.type === 'full' || fullyAdjustedItemIds.has(item.id))
+      .map((item: any) => item.price?.id)
+      .filter(Boolean)
+  );
+  const revokedAt = new Date().toISOString();
+
+  if (fullyAdjustedPriceIds.has(lifetimePriceId)) {
+    const { error: revokeLifetimeError } = await db
+      .from('product_entitlements')
+      .update({ status: 'revoked', valid_until: revokedAt, updated_at: revokedAt })
+      .eq('source_type', 'lifetime_transaction')
+      .eq('source_id', value.transactionId)
+      .eq('price_id', lifetimePriceId);
+    if (revokeLifetimeError) throw revokeLifetimeError;
+  }
+
+  const subscriptionId = value.subscriptionId ?? originalTransaction.subscriptionId;
+  if (subscriptionId && fullyAdjustedPriceIds.has(annualPriceId)) {
+    const { error: revokeSubscriptionError } = await db
+      .from('product_entitlements')
+      .update({ status: 'revoked', valid_until: revokedAt, updated_at: revokedAt })
+      .eq('source_type', 'subscription')
+      .eq('source_id', subscriptionId)
+      .eq('price_id', annualPriceId);
+    if (revokeSubscriptionError) throw revokeSubscriptionError;
+  }
 }
 
 Deno.serve(async (request) => {
