@@ -95,14 +95,62 @@ async function transaction(event: any) {
   if (error) throw error;
   const isLifetime = priceIds.includes(lifetimePriceId) || productIds.includes(lifetimeProductId);
   if (value.status === 'completed' && !value.subscriptionId && isLifetime) {
+    const entitlementId = `lifetime_transaction:${value.id}:${lifetimeProductId}`;
+    const { data: existingEntitlement } = await db
+      .from('product_entitlements')
+      .select('status')
+      .eq('entitlement_id', entitlementId)
+      .maybeSingle();
+    if (existingEntitlement?.status === 'revoked') return;
+
     const { error: entitlementError } = await db.from('product_entitlements').upsert({
-      entitlement_id: `lifetime_transaction:${value.id}:${lifetimeProductId}`,
+      entitlement_id: entitlementId,
       customer_id: value.customerId, source_type: 'lifetime_transaction', source_id: value.id,
       product_id: lifetimeProductId, price_id: lifetimePriceId, status: 'active',
       valid_from: value.billedAt ?? occurredAt, valid_until: null, updated_at: new Date().toISOString()
     }, { onConflict: 'source_type,source_id,product_id' });
     if (entitlementError) throw entitlementError;
   }
+}
+
+async function adjustment(event: any) {
+  const value = event.data;
+  const occurredAt = event.occurredAt ?? event.occurred_at;
+  const { data: existing } = await db
+    .from('paddle_adjustments')
+    .select('last_event_at')
+    .eq('adjustment_id', value.id)
+    .maybeSingle();
+  if (existing && new Date(existing.last_event_at) > new Date(occurredAt)) return;
+
+  const { error } = await db.from('paddle_adjustments').upsert({
+    adjustment_id: value.id,
+    transaction_id: value.transactionId,
+    subscription_id: value.subscriptionId,
+    customer_id: value.customerId,
+    action: value.action,
+    type: value.type,
+    status: value.status,
+    reason: value.reason,
+    currency_code: value.currencyCode,
+    paddle_created_at: value.createdAt,
+    paddle_updated_at: value.updatedAt,
+    last_event_at: occurredAt,
+    updated_at: new Date().toISOString()
+  });
+  if (error) throw error;
+
+  const revokesLifetime = value.status === 'approved'
+    && value.type === 'full'
+    && ['refund', 'chargeback'].includes(value.action);
+  if (!revokesLifetime) return;
+
+  const { error: revokeError } = await db
+    .from('product_entitlements')
+    .update({ status: 'revoked', updated_at: new Date().toISOString() })
+    .eq('source_type', 'lifetime_transaction')
+    .eq('source_id', value.transactionId);
+  if (revokeError) throw revokeError;
 }
 
 Deno.serve(async (request) => {
@@ -118,6 +166,8 @@ Deno.serve(async (request) => {
       case EventName.SubscriptionUpdated:
       case EventName.SubscriptionCanceled: await subscription(event); break;
       case EventName.TransactionCompleted: await transaction(event); break;
+      case EventName.AdjustmentCreated:
+      case EventName.AdjustmentUpdated: await adjustment(event); break;
       default: break;
     }
     return Response.json({ received: true });
