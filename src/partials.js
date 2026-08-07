@@ -4,12 +4,14 @@ const rootPrefix = window.location.pathname.endsWith('/welcome/') || window.loca
 
 export const header = `
   <header class="site-header">
-    <div class="shell header-inner">
-      <a class="brand" href="${rootPrefix}index.html" aria-label="ChargePilot 首页"><img class="brand-mark" src="${rootPrefix}images/chargepilot-logo.png" alt="">ChargePilot</a>
-      <button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false" data-menu-button>菜单</button>
-      <nav class="nav" aria-label="主导航" data-navigation>
-        <a href="${rootPrefix}index.html">首页</a><a href="${rootPrefix}pricing.html">定价</a><a href="${rootPrefix}privacy-policy.html">隐私</a><a href="${rootPrefix}terms-of-service.html">条款</a><a class="nav-cta" href="https://github.com/vibeforge2014/chargepilot/releases/download/v0.2.2/ChargePilot-0.2.2.dmg">下载 v0.2.2</a>
-      </nav>
+    <div class="shell">
+      <div class="header-inner">
+        <a class="brand" href="${rootPrefix}index.html" aria-label="ChargePilot 首页"><img class="brand-mark" src="${rootPrefix}images/chargepilot-logo.png" alt="">ChargePilot</a>
+        <button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false" data-menu-button>菜单</button>
+        <nav class="nav" aria-label="主导航" data-navigation>
+          <a href="${rootPrefix}index.html">首页</a><a href="${rootPrefix}pricing.html">定价</a><a href="${rootPrefix}privacy-policy.html">隐私</a><a href="${rootPrefix}terms-of-service.html">条款</a><a class="nav-cta" href="https://github.com/vibeforge2014/chargepilot/releases/download/v0.2.2/ChargePilot-0.2.2.dmg">下载 v0.2.2</a>
+        </nav>
+      </div>
     </div>
   </header>`;
 
