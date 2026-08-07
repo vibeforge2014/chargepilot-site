@@ -56,6 +56,9 @@ function sameOrigin(url) {
 }
 
 function shouldPJAX(href) {
+  // Never PJAX onto or off of a page whose <body> carries a page-specific class
+  // (pricing-page pulls in pricing.js + the Paddle SDK). Always full-load instead.
+  if (document.body.classList.contains("pricing-page")) return false;
   if (!sameOrigin(href)) return false;
   const u = new URL(href, window.location.href);
   // only top-level pages, same depth (no subpaths like /welcome/)
@@ -114,6 +117,9 @@ async function navigate(href, { push = true } = {}) {
 
     currentMain.replaceWith(nextMain);
     document.title = doc.title || document.title;
+    // keep page-level body class in sync with the incoming page so scoped
+    // theme styles (e.g. .pricing-page) never leak across navigations
+    document.body.className = doc.body ? doc.body.className : "";
 
     if (!reduceMotion) {
       nextMain.classList.add("is-entering");
