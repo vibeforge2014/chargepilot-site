@@ -2,7 +2,9 @@ import { defineConfig } from "vite";
 import { resolve } from "node:path";
 
 export default defineConfig({
-  base: "./",
+  base: process.env.SITE_BASE_PATH
+    ? `${process.env.SITE_BASE_PATH.replace(/\/$/, "")}/`
+    : "./",
   build: {
     rollupOptions: {
       input: {
