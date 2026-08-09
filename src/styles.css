@@ -173,7 +173,8 @@ h1 { max-width: 780px; margin: 0; font-size: clamp(3.2rem, 7vw, 6.7rem); line-he
 
 .pricing-hero { padding-bottom: 34px; }
 .sandbox-badge { display: inline-flex; align-items: center; gap: 9px; margin-top: 24px; padding: 9px 13px; border: 1px solid #d5a537; border-radius: 999px; background: #fff4cf; color: #74530b; font: 500 .7rem "DM Mono", monospace; }
-.sandbox-badge span { width: 7px; height: 7px; border-radius: 50%; background: #e5a91b; box-shadow: 0 0 0 4px rgba(229,169,27,.16); }
+.sandbox-badge > span:first-child { width: 7px; height: 7px; border-radius: 50%; background: #e5a91b; box-shadow: 0 0 0 4px rgba(229,169,27,.16); }
+.sandbox-badge .environment-label { width: auto; height: auto; border-radius: 0; background: none; box-shadow: none; }
 .pricing-status { margin: 0 0 22px; min-height: 24px; color: var(--muted); font: .78rem/1.6 "DM Mono", monospace; }
 .pricing-status[data-state="ready"] { color: var(--green-dark); }
 .pricing-status[data-state="error"] { color: #a93220; }

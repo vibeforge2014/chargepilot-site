@@ -21,6 +21,10 @@ if (requiredEnvironment.environment === 'sandbox' && !requiredEnvironment.client
   throw new Error('Sandbox Paddle configuration requires a test_ client-side token.');
 }
 
+if (requiredEnvironment.environment === 'production' && !requiredEnvironment.clientToken.startsWith('live_')) {
+  throw new Error('Production Paddle configuration requires a live_ client-side token.');
+}
+
 export const paddleConfig = Object.freeze(requiredEnvironment);
 
 export const pricingOptions = Object.freeze([

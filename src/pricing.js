@@ -3,7 +3,19 @@ import { paddleConfig, pricingOptions } from './pricing-config.js';
 
 const status = document.querySelector('[data-pricing-status]');
 const buttons = document.querySelectorAll('[data-checkout]');
+const environmentBadge = document.querySelector('[data-environment-badge]');
+const environmentLabel = document.querySelector('[data-environment-label]');
 let paddle;
+
+if (environmentLabel) {
+  environmentLabel.textContent = paddleConfig.environment === 'production'
+    ? 'Paddle 正式支付 · 将产生真实扣款'
+    : 'Sandbox 测试环境 · 不会真实扣款';
+}
+
+if (environmentBadge) {
+  environmentBadge.dataset.environment = paddleConfig.environment;
+}
 
 function setStatus(message, state = 'loading') {
   if (!status) return;
