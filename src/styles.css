@@ -388,3 +388,17 @@ main.is-entering { opacity: 0; }
   .pricing-page .price-card, .pricing-page .pricing-status, .pricing-assurance, .pricing-trust span { background: var(--surface); backdrop-filter: none; }
   .header-inner, .status-card { background: #141815; backdrop-filter: none; }
 }
+.language-switch {
+  min-width: 38px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+.language-switch:hover { color: var(--ink); background: color-mix(in srgb, var(--paper) 75%, transparent); }

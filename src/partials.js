@@ -1,3 +1,5 @@
+import { initializeI18n } from './i18n.js';
+
 const rootPrefix = window.location.pathname.endsWith('/welcome/') || window.location.pathname.endsWith('/welcome/index.html')
   ? '../'
   : '';
@@ -28,3 +30,4 @@ export const footer = `
 
 document.querySelector("[data-header]")?.replaceWith(document.createRange().createContextualFragment(header));
 document.querySelector("[data-footer]")?.replaceWith(document.createRange().createContextualFragment(footer));
+initializeI18n();

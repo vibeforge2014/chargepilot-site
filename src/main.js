@@ -1,4 +1,5 @@
 import "./styles.css";
+import { applyLanguage } from "./i18n.js";
 
 /* ----------------------------------------------------------------------------
  * Shared page setup: runs on first load AND after every PJAX navigation.
@@ -32,6 +33,7 @@ function stampYear() {
 function setupPage() {
   setActiveNav();
   stampYear();
+  applyLanguage();
 }
 
 setupPage();
@@ -117,6 +119,7 @@ async function navigate(href, { push = true } = {}) {
 
     currentMain.replaceWith(nextMain);
     document.title = doc.title || document.title;
+    document.documentElement.dataset.originalTitle = document.title;
     // keep page-level body class in sync with the incoming page so scoped
     // theme styles (e.g. .pricing-page) never leak across navigations
     document.body.className = doc.body ? doc.body.className : "";

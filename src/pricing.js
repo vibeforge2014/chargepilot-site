@@ -1,5 +1,6 @@
 import { initializePaddle } from '@paddle/paddle-js';
 import { paddleConfig, pricingOptions } from './pricing-config.js';
+import { t } from './i18n.js';
 
 const status = document.querySelector('[data-pricing-status]');
 const buttons = document.querySelectorAll('[data-checkout]');
@@ -9,8 +10,8 @@ let paddle;
 
 if (environmentLabel) {
   environmentLabel.textContent = paddleConfig.environment === 'production'
-    ? 'Paddle 正式支付 · 将产生真实扣款'
-    : 'Sandbox 测试环境 · 不会真实扣款';
+    ? t('Paddle 正式支付 · 将产生真实扣款')
+    : t('Sandbox 测试环境 · 不会真实扣款');
 }
 
 if (environmentBadge) {
@@ -60,7 +61,7 @@ async function initializePricing() {
       token: paddleConfig.clientToken,
       eventCallback(event) {
         if (event.name === 'checkout.error' || event.name === 'checkout.payment.error') {
-          setStatus('结账暂时无法完成，请稍后重试。', 'error');
+          setStatus(t('结账暂时无法完成，请稍后重试。'), 'error');
         }
       }
     });
@@ -78,13 +79,13 @@ async function initializePricing() {
       button.disabled = false;
       button.addEventListener('click', () => openCheckout(button.dataset.checkout));
     });
-    setStatus('价格已根据你所在的地区显示，最终税费以结账页为准。', 'ready');
+    setStatus(t('价格已根据你所在的地区显示，最终税费以结账页为准。'), 'ready');
   } catch (error) {
     console.error(
       'Paddle pricing initialization failed:',
       error instanceof Error ? error.message : JSON.stringify(error)
     );
-    setStatus('价格加载失败。请刷新页面，或稍后再试。', 'error');
+    setStatus(t('价格加载失败。请刷新页面，或稍后再试。'), 'error');
   }
 }
 
