@@ -14,6 +14,8 @@ const english = {
   '刚刚好。': 'right where it should be.',
   'ChargePilot 把充电上限、主动放电、温度保护和实时功率放进一个清晰的原生界面。接上电源，也不必一直充到 100%。': 'ChargePilot brings charge limits, active discharge, temperature protection, and real-time power into one clear native interface. Stay plugged in without sitting at 100%.',
   '下载 ChargePilot': 'Download ChargePilot',
+  '下载 ChargePilot 0.3.2': 'Download ChargePilot 0.3.2',
+  '下载 v0.3.2': 'Download v0.3.2',
   '了解功能': 'Explore features',
   '不是更多数据。是更好的充电决定。': 'Not more data. Better charging decisions.',
   '可执行的充电上限': 'Charge limits that take action',
