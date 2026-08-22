@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>ChargePilot</title>
+        <item>
+            <title>0.3.6</title>
+            <pubDate>Sun, 23 Aug 2026 01:45:24 +0800</pubDate>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>0.3.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description sparkle:format="markdown"><![CDATA[# 0.3.6
+
+## 修复
+
+- **修复"检查更新"报错的问题。** 此前更新源指向私有仓库的 GitHub Release 资产，无法匿名下载，导致每次检查更新都提示失败。更新源现已迁移到官网（norelle.cc），自动更新与手动检查恢复正常。
+
+> 注意：从 0.3.5 及更早版本升级的用户，因旧版本内置的更新地址已失效，请从官网手动下载本版本安装；之后的更新即可正常自动完成。
+]]></description>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.6.zip" length="6358949" type="application/octet-stream" sparkle:edSignature="lP4+ajsIaw/En3OPvvBI2yo+ff4yJuxVzwTHj/7RiHh0/S9QTREzkD8cBLiJYPenQkjCJfUjOi+VeM9CZXcTCg=="/>
+        </item>
+    </channel>
+</rss>
