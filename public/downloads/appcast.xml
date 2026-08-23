@@ -3,20 +3,25 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.6</title>
-            <pubDate>Sun, 23 Aug 2026 01:45:24 +0800</pubDate>
-            <sparkle:version>16</sparkle:version>
-            <sparkle:shortVersionString>0.3.6</sparkle:shortVersionString>
+            <title>0.3.7</title>
+            <pubDate>Sun, 23 Aug 2026 21:14:24 +0800</pubDate>
+            <sparkle:version>17</sparkle:version>
+            <sparkle:shortVersionString>0.3.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# 0.3.6
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.7
 
-## 修复
+## 改进
 
-- **修复"检查更新"报错的问题。** 此前更新源指向私有仓库的 GitHub Release 资产，无法匿名下载，导致每次检查更新都提示失败。更新源现已迁移到官网（norelle.cc），自动更新与手动检查恢复正常。
+- 支持 Mac mini、Mac Studio 等没有内置电池的设备，不再显示虚假电量或无效控制项。
+- 提升后台 helper 健壮性：增加硬件重新探测、唤醒恢复、XPC 断线恢复和无电池写入防护。
+- 后台运行权限被撤销或未批准时持续提示，并可直接打开系统设置解决。
+- 加固在线更新：强制使用官网公开更新源，清理历史失效地址，并在发布后自动验证 Appcast、EdDSA 和代码签名。
 
-> 注意：从 0.3.5 及更早版本升级的用户，因旧版本内置的更新地址已失效，请从官网手动下载本版本安装；之后的更新即可正常自动完成。
+## 说明
+
+0.3.5 及更早版本使用的旧更新地址已失效，需要先从官网手动安装 0.3.6 或更高版本；之后即可正常在线更新。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.6.zip" length="6358949" type="application/octet-stream" sparkle:edSignature="lP4+ajsIaw/En3OPvvBI2yo+ff4yJuxVzwTHj/7RiHh0/S9QTREzkD8cBLiJYPenQkjCJfUjOi+VeM9CZXcTCg=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.7.zip" length="6453887" type="application/octet-stream" sparkle:edSignature="bQN04RmAhWKKkRjYU9UR3ekgfvMOFyvywOWTTK/tnKYmHmFAGVIEe62IyO5gU8enbEiuKSYkcTgAHZU9ol8aCA=="/>
         </item>
     </channel>
 </rss>
