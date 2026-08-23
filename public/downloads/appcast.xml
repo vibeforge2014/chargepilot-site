@@ -4,7 +4,7 @@
         <title>ChargePilot</title>
         <item>
             <title>0.3.7</title>
-            <pubDate>Sun, 23 Aug 2026 21:14:24 +0800</pubDate>
+            <pubDate>Sun, 23 Aug 2026 21:53:10 +0800</pubDate>
             <sparkle:version>17</sparkle:version>
             <sparkle:shortVersionString>0.3.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
@@ -17,9 +17,9 @@
 - 后台运行权限被撤销或未批准时持续提示，并可直接打开系统设置解决。
 - 加固在线更新：强制使用官网公开更新源，清理历史失效地址，并在发布后自动验证 Appcast、EdDSA 和代码签名。
 
-## 说明
+## 升级兼容
 
-0.3.5 及更早版本使用的旧更新地址已失效，需要先从官网手动安装 0.3.6 或更高版本；之后即可正常在线更新。
+已恢复 0.3.5 及更早版本使用的旧更新入口，可直接通过应用内更新升级到 0.3.7。
 ]]></description>
             <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.7.zip" length="6453887" type="application/octet-stream" sparkle:edSignature="bQN04RmAhWKKkRjYU9UR3ekgfvMOFyvywOWTTK/tnKYmHmFAGVIEe62IyO5gU8enbEiuKSYkcTgAHZU9ol8aCA=="/>
         </item>
