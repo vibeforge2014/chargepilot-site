@@ -3,25 +3,25 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.7</title>
-            <pubDate>Sun, 23 Aug 2026 21:53:10 +0800</pubDate>
-            <sparkle:version>17</sparkle:version>
-            <sparkle:shortVersionString>0.3.7</sparkle:shortVersionString>
+            <title>0.3.8</title>
+            <pubDate>Tue, 25 Aug 2026 22:41:19 +0800</pubDate>
+            <sparkle:version>18</sparkle:version>
+            <sparkle:shortVersionString>0.3.8</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.7
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.8
 
-## 改进
+## 充电上限交互改进
 
-- 支持 Mac mini、Mac Studio 等没有内置电池的设备，不再显示虚假电量或无效控制项。
-- 提升后台 helper 健壮性：增加硬件重新探测、唤醒恢复、XPC 断线恢复和无电池写入防护。
-- 后台运行权限被撤销或未批准时持续提示，并可直接打开系统设置解决。
-- 加固在线更新：强制使用官网公开更新源，清理历史失效地址，并在发布后自动验证 Appcast、EdDSA 和代码签名。
+- 调整充电上限时就地显示提交进度和成功确认，不再只显示无说明的转圈。
+- 提交失败时明确告知目标值未生效及恢复后的上限，并保留原目标值以便重试。
+- 根据后台服务状态直接提供授权、更新、修复或重试入口。
+- helper 未就绪时禁用滑杆和预设按钮，避免无效操作后无声复位。
 
-## 升级兼容
+## 更新兼容
 
-已恢复 0.3.5 及更早版本使用的旧更新入口，可直接通过应用内更新升级到 0.3.7。
+- 恢复旧版 Sparkle 更新桥接，确保 0.3.5 及更早版本仍可迁移到最新的官网更新源。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.7.zip" length="6453887" type="application/octet-stream" sparkle:edSignature="bQN04RmAhWKKkRjYU9UR3ekgfvMOFyvywOWTTK/tnKYmHmFAGVIEe62IyO5gU8enbEiuKSYkcTgAHZU9ol8aCA=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.8.zip" length="6495596" type="application/octet-stream" sparkle:edSignature="otDJrUn6i/Ph7yf31whTdsgVpNrhQuyBbFvuaVbR4I8lPB4Ot6AiDXqHjaymL82tIqAvQ9BMYl8KsHcyrDRbCg=="/>
         </item>
     </channel>
 </rss>
