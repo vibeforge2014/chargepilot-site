@@ -3,25 +3,20 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.8</title>
-            <pubDate>Tue, 25 Aug 2026 22:41:19 +0800</pubDate>
-            <sparkle:version>18</sparkle:version>
-            <sparkle:shortVersionString>0.3.8</sparkle:shortVersionString>
+            <title>0.3.9</title>
+            <pubDate>Wed, 26 Aug 2026 16:51:41 +0800</pubDate>
+            <sparkle:version>19</sparkle:version>
+            <sparkle:shortVersionString>0.3.9</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.8
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.9
 
-## 充电上限交互改进
+## 后台权限修复
 
-- 调整充电上限时就地显示提交进度和成功确认，不再只显示无说明的转圈。
-- 提交失败时明确告知目标值未生效及恢复后的上限，并保留原目标值以便重试。
-- 根据后台服务状态直接提供授权、更新、修复或重试入口。
-- helper 未就绪时禁用滑杆和预设按钮，避免无效操作后无声复位。
-
-## 更新兼容
-
-- 恢复旧版 Sparkle 更新桥接，确保 0.3.5 及更早版本仍可迁移到最新的官网更新源。
+- 应用更新后保留已批准的后台服务注册，不再因构建号变化自动卸载并重装 helper。
+- 同一通信协议的已运行 helper 可在更新后继续工作，避免 macOS 重复要求“允许在后台运行”。
+- 只在通信协议或服务身份确实不兼容时阻止操作，并明确引导重启或手动修复。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.8.zip" length="6495596" type="application/octet-stream" sparkle:edSignature="otDJrUn6i/Ph7yf31whTdsgVpNrhQuyBbFvuaVbR4I8lPB4Ot6AiDXqHjaymL82tIqAvQ9BMYl8KsHcyrDRbCg=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.9.zip" length="6503890" type="application/octet-stream" sparkle:edSignature="dKsqimec+cvUQCKs6XGNfYDHx923nTz2D0tAao44Qz/OUrkMtDFxS9oae5XfmmONMXX2J/x7R8Yj00DXrYICDQ=="/>
         </item>
     </channel>
 </rss>
