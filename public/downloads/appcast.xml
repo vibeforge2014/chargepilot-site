@@ -3,20 +3,21 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.9</title>
-            <pubDate>Wed, 26 Aug 2026 16:51:41 +0800</pubDate>
-            <sparkle:version>19</sparkle:version>
-            <sparkle:shortVersionString>0.3.9</sparkle:shortVersionString>
+            <title>0.3.10</title>
+            <pubDate>Thu, 27 Aug 2026 00:13:59 +0800</pubDate>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>0.3.10</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.9
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.10
 
-## 后台权限修复
+## 后台权限引导
 
-- 应用更新后保留已批准的后台服务注册，不再因构建号变化自动卸载并重装 helper。
-- 同一通信协议的已运行 helper 可在更新后继续工作，避免 macOS 重复要求“允许在后台运行”。
-- 只在通信协议或服务身份确实不兼容时阻止操作，并明确引导重启或手动修复。
+- 后台服务等待批准时，自动打开正确的系统设置页面并显示悬浮操作引导。
+- 悬浮卡支持拖动真实的 ChargePilot 应用到可添加 App 的权限列表；在“允许在后台”页面会明确提示打开右侧开关。
+- 授权成功后自动收起引导，离开系统设置时暂时隐藏，返回后继续提示。
+- 新增“重新检查”和关闭操作，避免用户在权限或 helper 配置异常时无从处理。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.9.zip" length="6503890" type="application/octet-stream" sparkle:edSignature="dKsqimec+cvUQCKs6XGNfYDHx923nTz2D0tAao44Qz/OUrkMtDFxS9oae5XfmmONMXX2J/x7R8Yj00DXrYICDQ=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.10.zip" length="6587476" type="application/octet-stream" sparkle:edSignature="1gI+Jwhs329JwSgecNMICH/fmYfNBi2y2W9E71mLxrKMDZ8DgTOzWgVb70nx2ouN6Z25p6IFcjJ774Js/310CA=="/>
         </item>
     </channel>
 </rss>
