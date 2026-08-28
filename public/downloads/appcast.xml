@@ -3,21 +3,18 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.10</title>
-            <pubDate>Thu, 27 Aug 2026 00:13:59 +0800</pubDate>
-            <sparkle:version>20</sparkle:version>
-            <sparkle:shortVersionString>0.3.10</sparkle:shortVersionString>
+            <title>0.3.11</title>
+            <pubDate>Fri, 28 Aug 2026 20:26:24 +0800</pubDate>
+            <sparkle:version>21</sparkle:version>
+            <sparkle:shortVersionString>0.3.11</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.10
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.11
 
-## 后台权限引导
-
-- 后台服务等待批准时，自动打开正确的系统设置页面并显示悬浮操作引导。
-- 悬浮卡支持拖动真实的 ChargePilot 应用到可添加 App 的权限列表；在“允许在后台”页面会明确提示打开右侧开关。
-- 授权成功后自动收起引导，离开系统设置时暂时隐藏，返回后继续提示。
-- 新增“重新检查”和关闭操作，避免用户在权限或 helper 配置异常时无从处理。
+- 优化充电上限调整反馈：快速操作现在静默完成，不再闪现转圈或“已应用”提示。
+- 后台确认超过 250ms 时，才在固定位置显示静态“应用中…”，避免卡片跳动。
+- 保留充电上限失败回滚、重试以及后台服务权限修复引导。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.10.zip" length="6587476" type="application/octet-stream" sparkle:edSignature="1gI+Jwhs329JwSgecNMICH/fmYfNBi2y2W9E71mLxrKMDZ8DgTOzWgVb70nx2ouN6Z25p6IFcjJ774Js/310CA=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.11.zip" length="6593244" type="application/octet-stream" sparkle:edSignature="Bsjot4KNgvtgSAedavz7mcSNhaM9cz/54ox6FJdkNkrM1h0YbQIqR0SCBOfivk+4LAVge/oFb7VPpbDRIqvHAg=="/>
         </item>
     </channel>
 </rss>
