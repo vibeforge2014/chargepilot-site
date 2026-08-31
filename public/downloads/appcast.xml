@@ -3,18 +3,20 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.11</title>
-            <pubDate>Fri, 28 Aug 2026 20:26:24 +0800</pubDate>
-            <sparkle:version>21</sparkle:version>
-            <sparkle:shortVersionString>0.3.11</sparkle:shortVersionString>
+            <title>0.3.12</title>
+            <pubDate>Mon, 31 Aug 2026 12:33:17 +0800</pubDate>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>0.3.12</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.11
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.12
 
-- 优化充电上限调整反馈：快速操作现在静默完成，不再闪现转圈或“已应用”提示。
-- 后台确认超过 250ms 时，才在固定位置显示静态“应用中…”，避免卡片跳动。
-- 保留充电上限失败回滚、重试以及后台服务权限修复引导。
+- 全面收敛应用动效，页面切换更直接，交互反馈更短促一致。
+- 实时遥测不再持续脉冲或滚动数字，仅保留功率条等有信息价值的平滑变化。
+- 优化设置卡片、快捷操作、充电上限与状态横幅的按压和状态反馈。
+- 完善“减弱动态效果”适配，关闭位移、缩放和脉冲，同时保留必要的透明度反馈。
+- 修复浮窗快速开关时旧动画回调可能影响新面板的问题。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.11.zip" length="6593244" type="application/octet-stream" sparkle:edSignature="Bsjot4KNgvtgSAedavz7mcSNhaM9cz/54ox6FJdkNkrM1h0YbQIqR0SCBOfivk+4LAVge/oFb7VPpbDRIqvHAg=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.12.zip" length="6657651" type="application/octet-stream" sparkle:edSignature="2gNLBrECIUWkzvEhn99lD5i4MBM6NsM/vNSopFuVOWIpkSlCKUFIIAONQvbp9X82UBNyYTMG60BJTtXOg+53Dg=="/>
         </item>
     </channel>
 </rss>
