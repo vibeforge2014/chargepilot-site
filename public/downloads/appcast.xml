@@ -3,20 +3,18 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.12</title>
-            <pubDate>Mon, 31 Aug 2026 12:33:17 +0800</pubDate>
-            <sparkle:version>22</sparkle:version>
-            <sparkle:shortVersionString>0.3.12</sparkle:shortVersionString>
+            <title>0.3.13</title>
+            <pubDate>Thu, 03 Sep 2026 19:17:43 +0800</pubDate>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>0.3.13</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.12
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.13
 
-- 全面收敛应用动效，页面切换更直接，交互反馈更短促一致。
-- 实时遥测不再持续脉冲或滚动数字，仅保留功率条等有信息价值的平滑变化。
-- 优化设置卡片、快捷操作、充电上限与状态横幅的按压和状态反馈。
-- 完善“减弱动态效果”适配，关闭位移、缩放和脉冲，同时保留必要的透明度反馈。
-- 修复浮窗快速开关时旧动画回调可能影响新面板的问题。
+- 电池剩余电量现在使用统一状态色：20% 及以下显示红色，21%–50% 显示橙色，50% 以上显示品牌绿。
+- 主仪表盘、菜单栏图标与弹窗、悬浮窗同步使用同一套电量颜色规则。
+- 增加电量分段临界值测试，避免状态色在 20%/21% 和 50%/51% 边界出现偏差。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.12.zip" length="6657651" type="application/octet-stream" sparkle:edSignature="2gNLBrECIUWkzvEhn99lD5i4MBM6NsM/vNSopFuVOWIpkSlCKUFIIAONQvbp9X82UBNyYTMG60BJTtXOg+53Dg=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.13.zip" length="6660838" type="application/octet-stream" sparkle:edSignature="RM6a1l6rs0d0y39f8GqKXSa90dJ9PbV15p3KfGQj52e1sLxKeDU4gbNt5mE+R89KtRfygJd2CTVPHdM5LqeQCg=="/>
         </item>
     </channel>
 </rss>
