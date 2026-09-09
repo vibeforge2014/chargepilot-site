@@ -3,19 +3,19 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.15</title>
-            <pubDate>Wed, 09 Sep 2026 16:40:35 +0800</pubDate>
-            <sparkle:version>25</sparkle:version>
-            <sparkle:shortVersionString>0.3.15</sparkle:shortVersionString>
+            <title>0.3.16</title>
+            <pubDate>Wed, 09 Sep 2026 20:54:33 +0800</pubDate>
+            <sparkle:version>26</sparkle:version>
+            <sparkle:shortVersionString>0.3.16</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.15
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.16
 
-- 新增四套电池状态色预置：macOS 原生、ChargePilot、海岸冷调和色觉友好。
-- 状态色继续严格跟随剩余电量：20% 及以下为临界，21%–50% 为偏低，50% 以上为充足。
-- 所选方案实时同步到仪表板、菜单栏、弹窗和浮窗，并在重新启动后保持。
-- 补充状态色预置测试与中英文界面文案。
+- 修正 macOS 原生状态色预置：临界电量为红色、偏低电量为黄色，正常电量使用系统自适应单色。
+- 深色界面中的正常电量显示为白色，浅色界面自动显示为黑色，保持原生可读性。
+- macOS 原生方案的菜单栏正常态恢复使用系统模板图标，自动适配菜单栏背景。
+- 补充正常电量单色映射测试，防止再次误用充电状态的绿色。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.15.zip" length="6712243" type="application/octet-stream" sparkle:edSignature="ZIIQEqNPMN2x3Sf50sJ2ID7nX1as45bfGe6JEM7EaJKt9GWnD6ETjdFkGq8fds6s62K3BQvg2LDqcbtc7YbEAg=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.16.zip" length="6712338" type="application/octet-stream" sparkle:edSignature="3dnngoT+wrgWjVlVyXTDEMA+dq7nYt8eRKrQ30ey+1NismjhHi0yb6rkp4eYdN1tqRPVRLjr7vblVImkTpY1Cg=="/>
         </item>
     </channel>
 </rss>
