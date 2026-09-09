@@ -3,18 +3,19 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.13</title>
-            <pubDate>Thu, 03 Sep 2026 19:17:43 +0800</pubDate>
-            <sparkle:version>23</sparkle:version>
-            <sparkle:shortVersionString>0.3.13</sparkle:shortVersionString>
+            <title>0.3.14</title>
+            <pubDate>Wed, 09 Sep 2026 15:16:31 +0800</pubDate>
+            <sparkle:version>24</sparkle:version>
+            <sparkle:shortVersionString>0.3.14</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.13
+            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.14
 
-- 电池剩余电量现在使用统一状态色：20% 及以下显示红色，21%–50% 显示橙色，50% 以上显示品牌绿。
-- 主仪表盘、菜单栏图标与弹窗、悬浮窗同步使用同一套电量颜色规则。
-- 增加电量分段临界值测试，避免状态色在 20%/21% 和 50%/51% 边界出现偏差。
+- 修复充电状态徽标仍按“充电中”显示绿色、没有跟随剩余电量的问题。
+- 仪表板状态文字、睡眠页状态徽标、菜单弹窗与浮窗统一使用电量状态色：20% 及以下红色，21%–50% 橙色，50% 以上品牌绿。
+- 修复 macOS 菜单栏覆盖 SwiftUI 前景色的问题，改用保留调色板颜色的非模板图标。
+- 过热和错误仍优先显示红色，校准与不可用状态保留各自语义色。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.13.zip" length="6660838" type="application/octet-stream" sparkle:edSignature="RM6a1l6rs0d0y39f8GqKXSa90dJ9PbV15p3KfGQj52e1sLxKeDU4gbNt5mE+R89KtRfygJd2CTVPHdM5LqeQCg=="/>
+            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.14.zip" length="6668804" type="application/octet-stream" sparkle:edSignature="ahE4CxKaUQ9Y31HvnpBRZQPyU2cRbLOelvw3Ec1wLninyR/erENi6InV1zmawq/e11y7XOG1DTYEO8tkR2zpBA=="/>
         </item>
     </channel>
 </rss>
