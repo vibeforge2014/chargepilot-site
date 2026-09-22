@@ -1,0 +1,2 @@
+ad574f35b64b677f6f05c131efba7ec168b7fc28e4fae099ad15c1a10063f94d  /Users/qz/Desktop/vibeforge/aidente/.build/artifacts/ChargePilot-0.3.18.zip
+671a1e76956ed5a26d03f6d26920ae4ac6e8067aa49f4c0b0437b3d901665b3a  /Users/qz/Desktop/vibeforge/aidente/.build/artifacts/ChargePilot-0.3.18.dmg

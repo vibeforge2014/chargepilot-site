@@ -7,7 +7,9 @@ on:
 
 jobs:
   deploy:
-    uses: vibeforge2014/portal/.github/workflows/deploy-pages.yml@main
+    # Keep this pinned to the last reusable Cloudflare Pages deploy workflow.
+    # The workflow currently on portal/main is validation-only.
+    uses: vibeforge2014/portal/.github/workflows/deploy-pages.yml@b38d7bad00808cfd5495913e1ae5d8ff6261bc35
     secrets:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

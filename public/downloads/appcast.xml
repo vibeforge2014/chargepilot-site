@@ -3,19 +3,16 @@
     <channel>
         <title>ChargePilot</title>
         <item>
-            <title>0.3.16</title>
-            <pubDate>Wed, 09 Sep 2026 20:54:33 +0800</pubDate>
-            <sparkle:version>26</sparkle:version>
-            <sparkle:shortVersionString>0.3.16</sparkle:shortVersionString>
+            <title>0.3.18</title>
+            <pubDate>Mon, 21 Sep 2026 21:12:43 +0800</pubDate>
+            <sparkle:version>28</sparkle:version>
+            <sparkle:shortVersionString>0.3.18</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <description sparkle:format="markdown"><![CDATA[# ChargePilot 0.3.16
+            <description sparkle:format="markdown"><![CDATA[修复菜单栏电池图标与剩余电量百分比不一致的问题。电池填充现在随实际显示电量连续变化，设置页预览同步更新。
 
-- 修正 macOS 原生状态色预置：临界电量为红色、偏低电量为黄色，正常电量使用系统自适应单色。
-- 深色界面中的正常电量显示为白色，浅色界面自动显示为黑色，保持原生可读性。
-- macOS 原生方案的菜单栏正常态恢复使用系统模板图标，自动适配菜单栏背景。
-- 补充正常电量单色映射测试，防止再次误用充电状态的绿色。
+完善在线更新源配置。
 ]]></description>
-            <enclosure url="https://norelle.cc/chargepilot/downloads/ChargePilot-0.3.16.zip" length="6712338" type="application/octet-stream" sparkle:edSignature="3dnngoT+wrgWjVlVyXTDEMA+dq7nYt8eRKrQ30ey+1NismjhHi0yb6rkp4eYdN1tqRPVRLjr7vblVImkTpY1Cg=="/>
+            <enclosure url="https://zensoft.top/chargepilot/downloads/ChargePilot-0.3.18.zip" length="6738456" type="application/octet-stream" sparkle:edSignature="pByhoeXL9kl2XXUzHW15xTr6/9KzwPROb0rJ0Jt4asG0bBsRyhr1bZ9aWE1h8VJ0PaFstYsLoeWbog300Ji6Bg=="/>
         </item>
     </channel>
 </rss>
