@@ -12,7 +12,7 @@
 
 完善在线更新源配置。
 ]]></description>
-            <enclosure url="https://zensoft.top/chargepilot/downloads/ChargePilot-0.3.18.zip" length="6738456" type="application/octet-stream" sparkle:edSignature="pByhoeXL9kl2XXUzHW15xTr6/9KzwPROb0rJ0Jt4asG0bBsRyhr1bZ9aWE1h8VJ0PaFstYsLoeWbog300Ji6Bg=="/>
+            <enclosure url="https://chargepilot-site.pages.dev/downloads/ChargePilot-0.3.18.zip" length="6738456" type="application/octet-stream" sparkle:edSignature="pByhoeXL9kl2XXUzHW15xTr6/9KzwPROb0rJ0Jt4asG0bBsRyhr1bZ9aWE1h8VJ0PaFstYsLoeWbog300Ji6Bg=="/>
         </item>
     </channel>
 </rss>
